@@ -69,8 +69,8 @@
 
         </div>
         <!-- /.row -->
-        <button type="button" onclick="location.href='modify?page=${param.page}&qno=${qus.qno}'" class="btn btn-primary">수정/삭제</button>
-        <a href="list?page=${param.page}"><button  class="btn btn-warning">목록으로</button></a>
+
+        <a href="quslist?page=${param.page}"><button  class="btn btn-warning">목록으로</button></a>
     </div>
 
 </div>
