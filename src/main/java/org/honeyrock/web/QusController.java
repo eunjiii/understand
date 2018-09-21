@@ -49,10 +49,6 @@ public class QusController extends AbstractController {
         vo.setQcmt(qcmt);
 
 
-        System.out.println("======================================");
-        System.out.println("======================================");
-        System.out.println(vo);
-        System.out.println("======================================");
 
         Collection<Part> parts = req.getParts();
 
@@ -81,9 +77,7 @@ public class QusController extends AbstractController {
 
         });
 
-        System.out.println("after upload...................................");
-        System.out.println(vo);
-        System.out.println("after upload...................................");
+
 
         dao.addQuestion(vo);
 
@@ -103,7 +97,20 @@ public class QusController extends AbstractController {
         return "quslist";
     }
 
+    public String qusreadGET(HttpServletRequest req, HttpServletResponse resp) throws Exception {
 
+        String qnoStr = req.getParameter("qno");
+        int qno = Converter.getInt(qnoStr, -1);
+        if (qno == -1) {
+            throw new Exception(("Invalid data"));
+        }
+
+        QuestionVO vo = dao.getQuestion(qno);
+
+        req.setAttribute("qus", vo);
+
+        return "qusread";
+    }
     @Override
     public String getBasic() {
         return "/user/";

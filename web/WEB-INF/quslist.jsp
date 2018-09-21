@@ -54,7 +54,7 @@
                             <tr class="odd gradeX">
                                 <td>${question.qno}</td>
                                 <td>${question.uname}</td>
-                                <td><a href="read?page=${pageMaker.pageDTO.page}&size=${pageMaker.pageDTO.size}&qno=${question.qno}">${question.qtitle}</a></td>
+                                <td><a href="qusread?page=${pageMaker.pageDTO.page}&size=${pageMaker.pageDTO.size}&qno=${question.qno}">${question.qtitle}</a></td>
                                 <td>${question.qregdate}</td>
                             </tr>
                         </c:forEach>
@@ -66,15 +66,15 @@
                     <ul class="pagination">
 
                         <c:if test="${pageMaker.prev}">
-                            <li><a href="list?page=${pageMaker.start - 1}&size=${pageMaker.pageDTO.size}" >Prev</a></li>
+                            <li><a href="quslist?page=${pageMaker.start - 1}&size=${pageMaker.pageDTO.size}" >Prev</a></li>
                         </c:if>
 
                         <c:forEach begin="${pageMaker.start}" end="${pageMaker.end}" var="num">
-                            <li ${pageMaker.pageDTO.page == num ?"class='active'":""} ><a href="list?page=${num}&size=${pageMaker.pageDTO.size}" >${num}</a></li>
+                            <li ${pageMaker.pageDTO.page == num ?"class='active'":""} ><a href="quslist?page=${num}&size=${pageMaker.pageDTO.size}" >${num}</a></li>
                         </c:forEach>
 
                         <c:if test="${pageMaker.next}">
-                            <li><a href="list?page=${pageMaker.end + 1}&size=${pageMaker.pageDTO.size}" >Next</a></li>
+                            <li><a href="quslist?page=${pageMaker.end + 1}&size=${pageMaker.pageDTO.size}" >Next</a></li>
                         </c:if>
 
                     </ul>
